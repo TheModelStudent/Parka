@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sign In — PARKA (Preview)</title>
+<!-- Static preview of the PARKA account page. Production: /account/login in the Next.js app. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="parka-preview.css" />
+</head>
+<body>
+
+<header id="hdr" class="page">
+  <div class="wrap hdr">
+    <a href="preview.html" aria-label="PARKA home"><span class="wordmark"></span></a>
+    <nav class="main">
+      <a href="shop.html">New</a><a href="shop.html">Necklaces</a><a href="shop.html">Earrings</a>
+      <a href="shop.html">Bracelets</a><a href="shop.html">Rings</a>
+      <a href="preview.html#collections">Collections</a><a href="preview.html#about">Our Story</a>
+    </nav>
+    <div class="icons">
+      <a class="desk" href="shop.html" aria-label="Search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg></a>
+      <a class="desk" href="login.html" aria-label="Account"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></a>
+      <a href="#" aria-label="Cart"><svg class="i" viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></a>
+      <button id="theme" aria-label="Toggle theme"><svg class="i" viewBox="0 0 24 24" id="theme-icon"><path d="M20 14.5A8 8 0 0 1 9.5 4 7 7 0 1 0 20 14.5Z"/></svg></button>
+      <a class="burger" href="preview.html" aria-label="Menu"><svg class="i" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<div class="split">
+  <div class="pic"><img src="public/images/about-portrait.jpg" alt="PARKA" /></div>
+  <div class="formside">
+    <div class="formcard" id="card">
+      <p class="eyebrow" id="kicker">Welcome back</p>
+      <h1 class="serif" id="heading">Sign in</h1>
+      <form id="form">
+        <div class="field" id="namefield" style="display:none">
+          <label for="name">Full name</label>
+          <input id="name" type="text" placeholder="Your name" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" required placeholder="you@email.com" />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" required placeholder="••••••••" />
+        </div>
+        <button class="btn btn-solid" type="submit" id="submit">Sign in</button>
+      </form>
+      <p class="switch" id="switch">New to PARKA? <a href="#" id="toggle">Create an account</a></p>
+    </div>
+  </div>
+</div>
+
+<div class="preview-flag">PARKA · account preview</div>
+
+<script>
+  (function(){try{var t=localStorage.getItem('parka-theme')||((matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');setTheme(t);}catch(e){}})();
+  function setTheme(t){document.documentElement.classList.toggle('dark',t==='dark');
+    var ic=document.getElementById('theme-icon');
+    if(ic){ic.innerHTML=t==='dark'?'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/>':'<path d="M20 14.5A8 8 0 0 1 9.5 4 7 7 0 1 0 20 14.5Z"/>';}
+    try{localStorage.setItem('parka-theme',t);}catch(e){}}
+  document.getElementById('theme').addEventListener('click',function(){setTheme(document.documentElement.classList.contains('dark')?'light':'dark');});
+
+  var mode="login";
+  function applyMode(){
+    var login=mode==="login";
+    document.getElementById('kicker').textContent=login?"Welcome back":"Join the world of PARKA";
+    document.getElementById('heading').textContent=login?"Sign in":"Create account";
+    document.getElementById('submit').textContent=login?"Sign in":"Create account";
+    document.getElementById('namefield').style.display=login?"none":"block";
+    document.getElementById('switch').innerHTML=(login?"New to PARKA? ":"Already have an account? ")+
+      '<a href="#" id="toggle">'+(login?"Create an account":"Sign in")+'</a>';
+    bindToggle();
+  }
+  function bindToggle(){document.getElementById('toggle').addEventListener('click',function(e){e.preventDefault();mode=mode==="login"?"register":"login";applyMode();});}
+  bindToggle();
+  document.getElementById('form').addEventListener('submit',function(e){
+    e.preventDefault();
+    document.getElementById('card').innerHTML='<p class="eyebrow">'+(mode==="login"?"Welcome back":"Welcome")+'</p>'+
+      '<h1 class="serif" style="margin-top:16px">'+(mode==="login"?"Welcome back to PARKA.":"Welcome to PARKA.")+'</h1>'+
+      '<p class="switch">This is a demo form. Connect Shopify customer accounts to enable real sign-in.</p>'+
+      '<a class="btn btn-ink" href="preview.html" style="margin-top:24px">Return Home</a>';
+  });
+</script>
+</body>
+</html>

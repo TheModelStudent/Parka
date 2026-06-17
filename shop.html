@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shop — PARKA (Preview)</title>
+<!-- Static preview of a PARKA listing page: search + sort + category filter,
+     populated from the real catalogue. Production: /collections/[handle]. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="parka-preview.css" />
+</head>
+<body>
+
+<header id="hdr" class="page">
+  <div class="wrap hdr">
+    <a href="preview.html" aria-label="PARKA home"><span class="wordmark"></span></a>
+    <nav class="main">
+      <a href="shop.html">New</a><a href="shop.html">Necklaces</a><a href="shop.html">Earrings</a>
+      <a href="shop.html">Bracelets</a><a href="shop.html">Rings</a>
+      <a href="preview.html#collections">Collections</a><a href="preview.html#about">Our Story</a>
+    </nav>
+    <div class="icons">
+      <a class="desk" href="shop.html" aria-label="Search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg></a>
+      <a class="desk" href="login.html" aria-label="Account"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></a>
+      <a href="#" aria-label="Cart"><svg class="i" viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></a>
+      <button id="theme" aria-label="Toggle theme"><svg class="i" viewBox="0 0 24 24" id="theme-icon"><path d="M20 14.5A8 8 0 0 1 9.5 4 7 7 0 1 0 20 14.5Z"/></svg></button>
+      <a class="burger" href="preview.html" aria-label="Menu"><svg class="i" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<section class="pagehero">
+  <img class="bg" src="public/images/catalog/070.jpg" alt="PARKA jewellery" />
+  <div class="ovl" style="background:rgba(22,19,14,.5)"></div>
+  <div class="wrap" style="position:relative;z-index:2;padding-top:64px">
+    <p class="eyebrow" style="color:rgba(242,236,223,.8)">The Collection</p>
+    <h1 class="serif">Shop PARKA</h1>
+    <p style="color:rgba(242,236,223,.85);max-width:34rem;margin:14px auto 0;font-size:15px">Search, filter and sort the full collection — necklaces, earrings &amp; more.</p>
+  </div>
+</section>
+
+<section class="wrap" style="padding:64px 0 112px">
+  <div class="toolbar">
+    <div class="left">
+      <div class="searchbox">
+        <svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+        <input id="q" type="search" placeholder="Search the collection" aria-label="Search the collection" />
+      </div>
+      <div id="chips" style="display:flex;flex-wrap:wrap;gap:20px"></div>
+    </div>
+    <div class="right">
+      <span class="count" id="count">—</span>
+      <label class="select">Sort
+        <select id="sort">
+          <option value="newest">Newest</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name">Name: A–Z</option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <div id="grid" class="plpgrid"></div>
+  <p id="empty" class="empty" style="display:none">Nothing matches just yet — try another search.</p>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fbot" style="border-top:0">
+      <a href="preview.html"><span class="wordmark" style="height:30px"></span></a>
+      <div style="display:flex;gap:24px"><a href="preview.html#about">Our Story</a><a href="login.html">Account</a><a href="preview.html#stores">Boutiques</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="preview-flag">PARKA · shop preview</div>
+
+<script>
+  (function(){try{var t=localStorage.getItem('parka-theme')||((matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');setTheme(t);}catch(e){}})();
+  function setTheme(t){document.documentElement.classList.toggle('dark',t==='dark');
+    var ic=document.getElementById('theme-icon');
+    if(ic){ic.innerHTML=t==='dark'?'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/>':'<path d="M20 14.5A8 8 0 0 1 9.5 4 7 7 0 1 0 20 14.5Z"/>';}
+    try{localStorage.setItem('parka-theme',t);}catch(e){}}
+  document.getElementById('theme').addEventListener('click',function(){setTheme(document.documentElement.classList.contains('dark')?'light':'dark');});
+
+  var P=[
+    {n:"Aabha Choker",s:"Polki & coloured stones",p:1985000,c:"necklaces",b:"New",img:"001",m:"polki ruby emerald gold",r:39},
+    {n:"Naina Choker",s:"Uncut polki bib choker",p:1760000,c:"necklaces",b:"",img:"002",m:"polki gold",r:18},
+    {n:"Roop Jhumkas",s:"Hexagon polki jhumkas",p:465000,c:"earrings",b:"",img:"003",m:"polki ruby emerald pearl",r:14},
+    {n:"Saanvi Tassel Set",s:"Kundan choker & jhumkas",p:1480000,c:"necklaces",b:"New",img:"005",m:"kundan emerald gold",r:38},
+    {n:"Indira Pendant",s:"Polki pendant necklace",p:720000,c:"necklaces",b:"",img:"007",m:"polki gold",r:6},
+    {n:"Tara Necklace",s:"Diamond & pearl drape",p:1290000,c:"necklaces",b:"",img:"008",m:"diamond pearl",r:16},
+    {n:"Kiara Necklace",s:"Diamond & pearl strands",p:1185000,c:"necklaces",b:"",img:"009",m:"diamond pearl",r:8},
+    {n:"Mira Drops",s:"Oval polki drop earrings",p:295000,c:"earrings",b:"",img:"010",m:"polki pearl",r:7},
+    {n:"Diya Necklace",s:"Polki pendant & pearls",p:980000,c:"necklaces",b:"",img:"011",m:"polki pearl gold",r:5},
+    {n:"Gauri Necklace",s:"Oval pendant, ruby & emerald",p:1120000,c:"necklaces",b:"",img:"012",m:"polki ruby emerald pearl",r:9},
+    {n:"Vaani Maangtika Set",s:"Maangtika & earrings",p:540000,c:"earrings",b:"",img:"013",m:"polki gold",r:11},
+    {n:"Devyani Necklace",s:"Polki necklace set",p:865000,c:"necklaces",b:"",img:"016",m:"polki gold",r:4},
+    {n:"Heer Jhumkas",s:"Gold polki jhumkas",p:410000,c:"earrings",b:"",img:"017",m:"polki gold pearl",r:3},
+    {n:"Elaa Emerald Set",s:"Square pendant set",p:1340000,c:"necklaces",b:"New",img:"019",m:"emerald polki pearl",r:34},
+    {n:"Pari Pendant",s:"Gold & polki pendant",p:520000,c:"necklaces",b:"",img:"021",m:"polki gold",r:2},
+    {n:"Anvi Drops",s:"Polki & pearl drop earrings",p:280000,c:"earrings",b:"",img:"022",m:"polki pearl",r:5},
+    {n:"Reva Necklace",s:"Polki necklace & earrings",p:760000,c:"necklaces",b:"",img:"023",m:"polki gold",r:6},
+    {n:"Eshana Necklace",s:"Emerald & diamond line",p:1290000,c:"necklaces",b:"",img:"024",m:"emerald diamond",r:10},
+    {n:"Zoya Emerald Set",s:"Emerald drop necklace & earrings",p:1180000,c:"necklaces",b:"New",img:"025",m:"emerald diamond gold",r:37},
+    {n:"Mahira Bridal Choker",s:"Polki choker & earrings",p:1620000,c:"necklaces",b:"Bridal",img:"028",m:"polki ruby gold",r:32},
+    {n:"Aisha Necklace",s:"Floral diamond necklace",p:1450000,c:"necklaces",b:"",img:"030",m:"diamond",r:13},
+    {n:"Myra Necklace",s:"Leaf diamond necklace",p:1380000,c:"necklaces",b:"",img:"031",m:"diamond",r:9},
+    {n:"Riya Danglers",s:"Floral diamond earrings",p:360000,c:"earrings",b:"",img:"032",m:"diamond",r:8},
+    {n:"Siya Necklace",s:"Diamond collar",p:1540000,c:"necklaces",b:"",img:"033",m:"diamond",r:7},
+    {n:"Kaira Necklace",s:"Marquise diamond necklace",p:1490000,c:"necklaces",b:"",img:"034",m:"diamond",r:6},
+    {n:"Anaika Necklace",s:"Blooming diamond necklace",p:1620000,c:"necklaces",b:"",img:"035",m:"diamond",r:12},
+    {n:"Sana Necklace",s:"Floral diamond necklace",p:1410000,c:"necklaces",b:"",img:"036",m:"diamond",r:5},
+    {n:"Kesar Choker",s:"Gold & polki drops",p:690000,c:"necklaces",b:"",img:"038",m:"polki gold",r:4},
+    {n:"Laila Necklace",s:"Fine gold drop necklace",p:560000,c:"necklaces",b:"",img:"039",m:"gold diamond",r:3},
+    {n:"Navya Navratna Set",s:"Navratna necklace & earrings",p:1280000,c:"necklaces",b:"",img:"040",m:"navratna emerald gold",r:29},
+    {n:"Gitanjali Navratna Set",s:"Grand navratna set",p:1720000,c:"necklaces",b:"New",img:"042",m:"navratna emerald ruby gold",r:35},
+    {n:"Mannat Hasli Set",s:"Gold hasli & earrings",p:980000,c:"necklaces",b:"",img:"043",m:"polki gold",r:25},
+    {n:"Nitya Hasli",s:"Gold hasli, ruby & emerald",p:1040000,c:"necklaces",b:"",img:"046",m:"polki ruby emerald gold",r:8},
+    {n:"Saira Emerald Drops",s:"Emerald drop earrings",p:420000,c:"earrings",b:"",img:"047",m:"emerald gold",r:10},
+    {n:"Rhea Necklace",s:"Diamond collar",p:1350000,c:"necklaces",b:"",img:"049",m:"diamond",r:6},
+    {n:"Vidya Emerald Set",s:"Green-enamel necklace & earrings",p:1460000,c:"necklaces",b:"New",img:"051",m:"emerald diamond gold",r:36},
+    {n:"Jiya Jhumkas",s:"Gold polki jhumkas",p:380000,c:"earrings",b:"",img:"053",m:"polki gold",r:4},
+    {n:"Tanvi Necklace",s:"Leaf diamond necklace",p:1280000,c:"necklaces",b:"",img:"054",m:"diamond",r:5},
+    {n:"Aria Cuff",s:"Diamond & gold cuff",p:540000,c:"bracelets",b:"",img:"055",m:"diamond gold cuff",r:9},
+    {n:"Charvi Necklace & Cuff",s:"Diamond necklace & cuff",p:1180000,c:"necklaces",b:"",img:"056",m:"diamond pearl",r:7},
+    {n:"Ahana Necklace",s:"Diamond vine necklace",p:1320000,c:"necklaces",b:"",img:"057",m:"diamond",r:6},
+    {n:"Bhavya Necklace",s:"Diamond drop necklace",p:1240000,c:"necklaces",b:"",img:"058",m:"diamond",r:5},
+    {n:"Damini Drops",s:"Diamond drop earrings",p:340000,c:"earrings",b:"",img:"059",m:"diamond",r:4},
+    {n:"Prisha Diamond Set",s:"Diamond necklace & earrings",p:1690000,c:"necklaces",b:"New",img:"060",m:"diamond",r:33},
+    {n:"Falguni Necklace",s:"Diamond necklace with drop",p:1280000,c:"necklaces",b:"",img:"061",m:"diamond",r:9},
+    {n:"Indu Necklace",s:"Diamond necklace & earrings",p:1340000,c:"necklaces",b:"",img:"063",m:"diamond",r:7},
+    {n:"Sitara Necklace",s:"Diamond & coloured stones",p:1390000,c:"necklaces",b:"New",img:"064",m:"diamond emerald gold",r:28},
+    {n:"Eela Drops",s:"Diamond drop earrings",p:330000,c:"earrings",b:"",img:"066",m:"diamond",r:3},
+    {n:"Lavanya Necklace",s:"Floral diamond necklace",p:1460000,c:"necklaces",b:"",img:"067",m:"diamond",r:6},
+    {n:"Madhuri Diamond Set",s:"Diamond necklace & earrings",p:1520000,c:"necklaces",b:"",img:"069",m:"diamond",r:27},
+    {n:"Qamar Choker",s:"Kundan & emerald choker",p:1880000,c:"necklaces",b:"New",img:"070",m:"kundan emerald gold",r:40},
+    {n:"Yamini Jhumkas",s:"Kundan earrings & maangtika",p:450000,c:"earrings",b:"",img:"071",m:"kundan ruby emerald",r:5},
+    {n:"Radha Bridal Set",s:"Kundan necklace & earrings",p:1240000,c:"necklaces",b:"Bridal",img:"072",m:"kundan ruby emerald pearl",r:31},
+    {n:"Ira Necklace",s:"Oval polki layered necklace",p:1180000,c:"necklaces",b:"",img:"073",m:"polki diamond",r:30},
+    {n:"Sona Oval Drops",s:"Oval polki drop earrings",p:360000,c:"earrings",b:"",img:"074",m:"polki diamond",r:8},
+    {n:"Veda Chain",s:"Oval polki long chain",p:940000,c:"necklaces",b:"",img:"075",m:"polki diamond",r:7},
+    {n:"Amaira Necklace",s:"Oval kundan necklace",p:1090000,c:"necklaces",b:"",img:"077",m:"kundan polki",r:6},
+    {n:"Trisha Set",s:"Gold necklace & jhumkas",p:720000,c:"necklaces",b:"",img:"079",m:"polki gold",r:5},
+    {n:"Hiya Jhumkas",s:"Kundan ruby & emerald jhumkas",p:420000,c:"earrings",b:"",img:"080",m:"kundan ruby emerald",r:4},
+    {n:"Rani Maangtika Set",s:"Kundan maangtika & earrings",p:580000,c:"earrings",b:"Bridal",img:"082",m:"kundan ruby pearl",r:26}
+  ];
+  var fmt=function(v){return "₹"+v.toLocaleString('en-IN');};
+  var state={cat:"all",q:"",sort:"newest"};
+  var cats=["all"].concat(Array.from(new Set(P.map(function(p){return p.c;}))));
+  var chips=document.getElementById('chips');
+  chips.innerHTML=cats.map(function(c){return '<button class="chip'+(c==='all'?' active':'')+'" data-c="'+c+'">'+(c==='all'?'All':c)+'</button>';}).join('');
+  chips.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;state.cat=b.dataset.c;
+    chips.querySelectorAll('.chip').forEach(function(x){x.classList.toggle('active',x.dataset.c===state.cat);});render();});
+  document.getElementById('q').addEventListener('input',function(e){state.q=e.target.value.toLowerCase();render();});
+  document.getElementById('sort').addEventListener('change',function(e){state.sort=e.target.value;render();});
+
+  function render(){
+    var list=P.slice();
+    if(state.cat!=='all') list=list.filter(function(p){return p.c===state.cat;});
+    if(state.q) list=list.filter(function(p){return (p.n+' '+p.s+' '+p.m+' '+p.c).toLowerCase().indexOf(state.q)>-1;});
+    if(state.sort==='price-asc') list.sort(function(a,b){return a.p-b.p;});
+    else if(state.sort==='price-desc') list.sort(function(a,b){return b.p-a.p;});
+    else if(state.sort==='name') list.sort(function(a,b){return a.n.localeCompare(b.n);});
+    else list.sort(function(a,b){return b.r-a.r;});
+    var g=document.getElementById('grid');
+    g.innerHTML=list.map(function(p){
+      return '<a class="card" href="#" style="flex:none"><div class="imgbox">'+(p.b?'<span class="badge">'+p.b+'</span>':'')+
+        '<img loading="lazy" src="public/images/catalog/'+p.img+'.jpg" alt="'+p.n+'"/></div><div class="cap"><h3>'+p.n+
+        '</h3><div class="sub">'+p.s+'</div><div class="price">'+fmt(p.p)+'</div></div></a>';
+    }).join('');
+    document.getElementById('count').textContent=list.length+(list.length===1?' piece':' pieces');
+    document.getElementById('empty').style.display=list.length?'none':'block';
+  }
+  render();
+</script>
+</body>
+</html>

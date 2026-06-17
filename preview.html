@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PARKA — Luxury Indian Jewellery House (Preview)</title>
+<!--
+  No-install visual preview of the PARKA homepage.
+  The production site is the Next.js + TypeScript + Tailwind app in /src.
+  Open this file in a browser to see the design with real photography, both
+  videos (portrait, zoom-filled), the wordmark logo, theme toggle and animations.
+  Links: shop.html (listing + search/sort), login.html.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="parka-preview.css" />
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap hdr">
+    <a href="#hero" aria-label="PARKA home"><span class="wordmark"></span></a>
+    <nav class="main">
+      <a href="shop.html">New</a><a href="shop.html">Necklaces</a><a href="shop.html">Earrings</a>
+      <a href="shop.html">Bracelets</a><a href="shop.html">Rings</a>
+      <a href="#collections">Collections</a><a href="#about">Our Story</a>
+    </nav>
+    <div class="icons">
+      <a class="desk" href="shop.html" aria-label="Search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg></a>
+      <a class="desk" href="login.html" aria-label="Account"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></a>
+      <a href="#" aria-label="Cart"><svg class="i" viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></a>
+      <button id="theme" aria-label="Toggle theme"><svg class="i" viewBox="0 0 24 24" id="theme-icon"><path d="M20 14.5A8 8 0 0 1 9.5 4 7 7 0 1 0 20 14.5Z"/></svg></button>
+      <a class="burger" href="shop.html" aria-label="Menu"><svg class="i" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<!-- 1 · HERO VIDEO (portrait, zoom-filled) -->
+<section class="hero" id="hero">
+  <div class="videobox" style="background:#16130e url(public/images/hero-poster.jpg) center/cover">
+    <iframe src="https://www.youtube.com/embed/pHYye_MicJQ?autoplay=1&mute=1&controls=0&loop=1&playlist=pHYye_MicJQ&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0" title="PARKA" allow="autoplay; encrypted-media; picture-in-picture"></iframe>
+  </div>
+  <div class="ovl" style="background:linear-gradient(to bottom,rgba(22,19,14,.55),rgba(22,19,14,.25) 40%,rgba(22,19,14,.7));"></div>
+  <div class="wrap"><div class="copy reveal">
+    <p class="eyebrow" style="color:rgba(242,236,223,.8)">Fine Indian Jewellery</p>
+    <h1 class="serif">Crafted for women who carry stories.</h1>
+    <div style="margin-top:38px"><a class="btn btn-light" href="#new-in">Discover Collection</a></div>
+  </div></div>
+</section>
+
+<!-- 2 · PARKA SIGNATURE (necklace sketch — homepage decoration only) -->
+<section class="pad sig center" id="signature">
+  <div class="wrap reveal">
+    <p class="eyebrow">The House of PARKA</p>
+    <div class="sig-row"><span class="rule"></span><span class="mark"></span><span class="rule"></span></div>
+    <h2 class="serif">Jewellery inspired by heritage, crafted for today.</h2>
+  </div>
+</section>
+
+<!-- 3 · NEW IN STORE -->
+<section class="pad" id="new-in" style="background:var(--bg)">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div><p class="eyebrow">Newly Arrived</p><h2 class="serif h2">New In Store</h2></div>
+      <a class="small-link" href="shop.html" style="border-bottom:1px solid">View Everything</a>
+    </div>
+    <div class="grid4">
+      <a class="tile reveal" href="shop.html"><div class="imgbox"><img src="public/images/cat-earrings.jpg" alt="Earrings"/></div><div class="cap"><h3>Earrings</h3><p>Jhumkas, chandbalis &amp; drops</p></div></a>
+      <a class="tile reveal" href="shop.html"><div class="imgbox"><img src="public/images/cat-necklaces.jpg" alt="Necklaces"/></div><div class="cap"><h3>Necklaces</h3><p>Chokers, hasli &amp; long sets</p></div></a>
+      <a class="tile reveal" href="shop.html"><div class="imgbox"><img src="public/images/cat-bracelets.jpg" alt="Bracelets"/></div><div class="cap"><h3>Bracelets</h3><p>Cuffs, bangles &amp; kadas</p></div></a>
+      <a class="tile reveal" href="shop.html"><div class="imgbox"><img src="public/images/cat-rings.jpg" alt="Rings"/></div><div class="cap"><h3>Rings</h3><p>Cocktail &amp; heirloom rings</p></div></a>
+    </div>
+  </div>
+  <div style="margin-top:96px">
+    <div class="wrap head-row reveal" style="margin-bottom:36px">
+      <h3 class="serif" style="font-size:28px;margin:0">Pieces just added</h3>
+      <a class="small-link" href="shop.html">All New →</a>
+    </div>
+    <div class="rail">
+      <a class="card" href="shop.html"><div class="imgbox"><span class="badge">New</span><img src="public/images/catalog/070.jpg" alt="Qamar Choker"/></div><div class="cap"><h3>Qamar Choker</h3><div class="sub">Kundan &amp; emerald choker</div><div class="price">₹18,80,000</div></div></a>
+      <a class="card" href="shop.html"><div class="imgbox"><span class="badge">New</span><img src="public/images/catalog/001.jpg" alt="Aabha Choker"/></div><div class="cap"><h3>Aabha Choker</h3><div class="sub">Polki &amp; coloured stones</div><div class="price">₹19,85,000</div></div></a>
+      <a class="card" href="shop.html"><div class="imgbox"><span class="badge">New</span><img src="public/images/catalog/005.jpg" alt="Saanvi Tassel Set"/></div><div class="cap"><h3>Saanvi Tassel Set</h3><div class="sub">Kundan choker &amp; jhumkas</div><div class="price">₹14,80,000</div></div></a>
+      <a class="card" href="shop.html"><div class="imgbox"><span class="badge">New</span><img src="public/images/catalog/025.jpg" alt="Zoya Emerald Set"/></div><div class="cap"><h3>Zoya Emerald Set</h3><div class="sub">Emerald drop set</div><div class="price">₹11,80,000</div></div></a>
+      <a class="card" href="shop.html"><div class="imgbox"><span class="badge">New</span><img src="public/images/catalog/051.jpg" alt="Vidya Emerald Set"/></div><div class="cap"><h3>Vidya Emerald Set</h3><div class="sub">Green-enamel set</div><div class="price">₹14,60,000</div></div></a>
+      <a class="card" href="shop.html"><div class="imgbox"><span class="badge">New</span><img src="public/images/catalog/042.jpg" alt="Gitanjali Navratna Set"/></div><div class="cap"><h3>Gitanjali Navratna Set</h3><div class="sub">Grand navratna set</div><div class="price">₹17,20,000</div></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · STORYTELLING VIDEO (portrait, zoom-filled, lazy) -->
+<section class="story" id="story">
+  <div class="videobox" id="story-video" style="background:#16130e url(public/images/story-poster.jpg) center/cover"></div>
+  <div class="ovl" style="background:rgba(22,19,14,.45)"></div>
+  <div class="wrap reveal">
+    <p class="eyebrow" style="color:rgba(242,236,223,.8)">Our Story</p>
+    <h2 class="serif">Inspired by craft, culture and timeless beauty.</h2>
+    <div style="margin-top:38px"><a class="btn btn-light" href="#about">Read More</a></div>
+  </div>
+</section>
+
+<!-- 5 · COLLECTIONS -->
+<section class="pad" id="collections" style="background:var(--surface)">
+  <div class="wrap">
+    <div class="center reveal">
+      <p class="eyebrow">Curated Worlds</p>
+      <h2 class="serif h2">Discover our collections</h2>
+      <p class="muted" style="max-width:34rem;margin:18px auto 0;font-size:15px;line-height:1.7">Four worlds, each shaped by a different muse — from heirloom bridal polki to the quiet brilliance of diamonds.</p>
+    </div>
+    <div class="cols">
+      <a class="col reveal" href="shop.html"><img src="public/images/collection-bridal.jpg" alt="Vivaaha"/><div class="grad"></div><div class="cc"><p class="eyebrow" style="color:rgba(242,236,223,.75)">The Bridal Edit</p><h3 class="serif">Vivaaha</h3><p>Heirloom polki for the day you have always imagined.</p><span class="disc">Discover →</span></div></a>
+      <a class="col reveal" href="shop.html"><img src="public/images/collection-heritage.jpg" alt="Virasat"/><div class="grad"></div><div class="cc"><p class="eyebrow" style="color:rgba(242,236,223,.75)">Heritage Navratna</p><h3 class="serif">Virasat</h3><p>Nine sacred stones, reimagined for the modern muse.</p><span class="disc">Discover →</span></div></a>
+      <a class="col reveal" href="shop.html"><img src="public/images/collection-emerald.jpg" alt="Saawan"/><div class="grad"></div><div class="cc"><p class="eyebrow" style="color:rgba(242,236,223,.75)">Emerald Stories</p><h3 class="serif">Saawan</h3><p>The green of monsoon gardens, held in gold.</p><span class="disc">Discover →</span></div></a>
+      <a class="col reveal" href="shop.html"><img src="public/images/collection-diamond.jpg" alt="Noor"/><div class="grad"></div><div class="cc"><p class="eyebrow" style="color:rgba(242,236,223,.75)">Diamond Light</p><h3 class="serif">Noor</h3><p>Quiet brilliance for every chapter of your story.</p><span class="disc">Discover →</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · ABOUT PARKA -->
+<section class="pad" id="about" style="background:var(--bg)">
+  <div class="wrap about">
+    <div class="reveal" style="position:relative">
+      <div class="port"><img src="public/images/about-portrait.jpg" alt="A PARKA muse"/></div>
+      <div class="det"><img src="public/images/about-detail.jpg" alt="Kundan detail"/></div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Our Story</p>
+      <h2 class="serif">Inspired by art, design, craft &amp; culture</h2>
+      <p>PARKA is a contemporary Indian fine jewellery house, rooted in craft and shaped by a quiet irreverence for rules. We reinterpret tradition — bringing together diverse influences so that each piece lives on the cusp of history and modernity.</p>
+      <p>Every jewel is made slowly, by hand, by artisans who have carried their craft across generations. The result is meant to be worn, loved, and one day passed on — an heirloom in the making.</p>
+      <p class="quote">For women who carry stories.</p>
+      <div style="margin-top:34px"><a class="btn btn-ink" href="shop.html">Explore the Maison</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · STORE EXPERIENCE -->
+<section id="stores" style="background:var(--surface)">
+  <div class="banner">
+    <img class="bg" src="public/images/store-experience.jpg" alt="Step into the world of PARKA"/>
+    <div class="ovl" style="background:rgba(22,19,14,.5)"></div>
+    <div class="wrap reveal">
+      <p class="eyebrow" style="color:rgba(242,236,223,.8)">The PARKA Experience</p>
+      <h2 class="serif">Step into the world of PARKA</h2>
+      <p style="color:rgba(242,236,223,.85);max-width:34rem;margin:18px auto 0;font-size:15px;line-height:1.7">Where beauty, design, nuanced craft and contemporary artistry converge. Visit our boutiques, or arrange a private viewing.</p>
+      <p style="letter-spacing:.34em;text-transform:uppercase;color:rgba(242,236,223,.9);font-size:12px;margin-top:26px">Jaipur &nbsp;·&nbsp; Mumbai &nbsp;·&nbsp; New Delhi</p>
+      <div style="margin-top:34px"><a class="btn btn-light" href="#">Book an Appointment</a></div>
+    </div>
+  </div>
+  <div class="wrap" style="padding-top:80px;padding-bottom:112px">
+    <div class="stores">
+      <div class="store reveal"><div class="imgbox"><img src="public/images/collection-heritage.jpg" alt="Jaipur"/><div class="g"></div><div class="lbl"><p class="eyebrow" style="color:rgba(242,236,223,.75)">Jaipur</p><h3 class="serif">The PARKA Flagship</h3></div></div><p class="muted" style="font-size:14px;margin-top:16px">C-Scheme, Ashok Marg, Jaipur, Rajasthan</p></div>
+      <div class="store reveal"><div class="imgbox"><img src="public/images/store-experience.jpg" alt="Mumbai"/><div class="g"></div><div class="lbl"><p class="eyebrow" style="color:rgba(242,236,223,.75)">Mumbai</p><h3 class="serif">PARKA at Kala Ghoda</h3></div></div><p class="muted" style="font-size:14px;margin-top:16px">Rampart Row, Kala Ghoda, Mumbai</p></div>
+      <div class="store reveal"><div class="imgbox"><img src="public/images/collection-diamond.jpg" alt="New Delhi"/><div class="g"></div><div class="lbl"><p class="eyebrow" style="color:rgba(242,236,223,.75)">New Delhi</p><h3 class="serif">PARKA at Dhan Mill</h3></div></div><p class="muted" style="font-size:14px;margin-top:16px">Dhan Mill Compound, Chhatarpur, New Delhi</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · JOURNAL -->
+<section class="pad" id="journal" style="background:var(--bg)">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div><p class="eyebrow">Stories &amp; Craft</p><h2 class="serif h2">Our journal</h2></div>
+      <a class="small-link" href="#" style="border-bottom:1px solid">All Stories</a>
+    </div>
+    <div class="journal">
+      <a class="art reveal" href="#"><div class="imgbox"><img src="public/images/journal-1.jpg" alt=""/></div><div class="meta">May 2026 · 4 min read</div><h3 class="serif">The Language of Kundan</h3><p>Inside the centuries-old craft of setting uncut stones in pure gold — and why it still feels modern.</p></a>
+      <a class="art reveal" href="#"><div class="imgbox"><img src="public/images/journal-2.jpg" alt=""/></div><div class="meta">April 2026 · 3 min read</div><h3 class="serif">Heirlooms for a New Generation</h3><p>How today's brides are wearing their grandmothers' silhouettes in entirely new ways.</p></a>
+      <a class="art reveal" href="#"><div class="imgbox"><img src="public/images/journal-3.jpg" alt=""/></div><div class="meta">March 2026 · 5 min read</div><h3 class="serif">A Portrait of Adornment</h3><p>From the maangtika to the chandbali — the quiet poetry of ceremonial jewellery.</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · NEWSLETTER -->
+<section class="pad" id="newsletter" style="background:var(--surface)">
+  <div class="wrap news reveal">
+    <p class="eyebrow">PARKA Privé</p>
+    <h2 class="serif">Be a part of our world</h2>
+    <p class="muted" style="font-size:15px;line-height:1.7;margin-top:18px">Be the first to discover new collections, atelier stories and private viewings. No noise — only beauty, on occasion.</p>
+    <form onsubmit="this.innerHTML='<p style=&quot;font-family:var(--serif);font-size:22px;color:var(--gold)&quot;>Thank you — welcome to PARKA.</p>';return false;">
+      <input type="email" required placeholder="Your email address"/>
+      <button type="submit">Subscribe →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <span class="wordmark"></span>
+        <p class="muted" style="max-width:18rem;font-size:14px;line-height:1.7;margin-top:22px">Luxury Indian Jewellery House. Jewellery inspired by heritage, crafted for today.</p>
+        <p class="muted" style="font-size:14px;margin-top:18px">atelier@parka.jewelry<br/>+91 98765 43210</p>
+      </div>
+      <div class="fcols">
+        <div><h4>Maison</h4><ul><li><a href="#about">Our Story</a></li><li><a href="#collections">Collections</a></li><li><a href="#journal">The Journal</a></li><li><a href="#stores">Boutiques</a></li></ul></div>
+        <div><h4>Client Care</h4><ul><li><a href="#stores">Book an Appointment</a></li><li><a href="login.html">Account</a></li><li><a href="#">Jewellery Care</a></li><li><a href="#">Our Materials</a></li></ul></div>
+        <div><h4>Discover</h4><ul><li><a href="shop.html">Necklaces</a></li><li><a href="shop.html">Earrings</a></li><li><a href="shop.html">Bracelets</a></li><li><a href="shop.html">Rings</a></li></ul></div>
+      </div>
+      <div><h4>Follow</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Pinterest</a></li><li><a href="#">Facebook</a></li></ul></div>
+    </div>
+    <div class="fbot"><p>© 2026 PARKA. All rights reserved.</p><div style="display:flex;gap:24px"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Shipping</a></div></div>
+  </div>
+</footer>
+
+<div class="preview-flag">PARKA · static preview</div>
+
+<script>
+  (function(){try{var t=localStorage.getItem('parka-theme')||((matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');setTheme(t);}catch(e){}})();
+  function setTheme(t){document.documentElement.classList.toggle('dark',t==='dark');
+    var ic=document.getElementById('theme-icon');
+    if(ic){ic.innerHTML = t==='dark'
+      ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/>'
+      : '<path d="M20 14.5A8 8 0 0 1 9.5 4 7 7 0 1 0 20 14.5Z"/>';}
+    try{localStorage.setItem('parka-theme',t);}catch(e){}}
+  document.getElementById('theme').addEventListener('click',function(){
+    setTheme(document.documentElement.classList.contains('dark')?'light':'dark');});
+
+  var hdr=document.getElementById('hdr');
+  function onScroll(){hdr.classList.toggle('solid',window.scrollY>24);}
+  onScroll();addEventListener('scroll',onScroll,{passive:true});
+
+  var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+
+  var sv=document.getElementById('story-video'),done=false;
+  var vobs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!done){done=true;
+    sv.innerHTML='<iframe src="https://www.youtube.com/embed/6yx90_7CR78?autoplay=1&mute=1&controls=0&loop=1&playlist=6yx90_7CR78&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0" title="PARKA Story" allow="autoplay; encrypted-media; picture-in-picture"></iframe>';
+    vobs.disconnect();}});},{rootMargin:'400px 0px'});
+  vobs.observe(document.getElementById('story'));
+</script>
+</body>
+</html>
